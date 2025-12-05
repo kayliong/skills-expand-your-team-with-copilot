@@ -72,7 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateDarkModeIcon(isDarkMode) {
+    if (!darkModeToggle) return;
     const icon = darkModeToggle.querySelector(".dark-mode-icon");
+    if (!icon) return;
     if (isDarkMode) {
       icon.textContent = "☀️"; // Sun icon for light mode switch
     } else {
