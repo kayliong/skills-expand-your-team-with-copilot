@@ -527,16 +527,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const socialShareHtml = `
       <div class="social-share-buttons">
         <span class="share-label">Share:</span>
-        <button class="share-button facebook-share tooltip" data-activity="${name}" data-url="${shareUrl}" data-text="${shareText}">
-          <span class="share-icon">📘</span>
+        <button class="share-button facebook-share tooltip" data-activity="${name}" data-url="${shareUrl}" data-text="${shareText}" aria-label="Share ${name} on Facebook">
+          <span class="share-icon" aria-hidden="true">📘</span>
           <span class="tooltip-text">Share on Facebook</span>
         </button>
-        <button class="share-button twitter-share tooltip" data-activity="${name}" data-url="${shareUrl}" data-text="${shareText}">
-          <span class="share-icon">🐦</span>
+        <button class="share-button twitter-share tooltip" data-activity="${name}" data-url="${shareUrl}" data-text="${shareText}" aria-label="Share ${name} on Twitter">
+          <span class="share-icon" aria-hidden="true">🐦</span>
           <span class="tooltip-text">Share on Twitter</span>
         </button>
-        <button class="share-button email-share tooltip" data-activity="${name}" data-url="${shareUrl}" data-text="${shareText}" data-title="${shareTitle}">
-          <span class="share-icon">✉️</span>
+        <button class="share-button email-share tooltip" data-activity="${name}" data-url="${shareUrl}" data-text="${shareText}" data-title="${shareTitle}" aria-label="Share ${name} via Email">
+          <span class="share-icon" aria-hidden="true">✉️</span>
           <span class="tooltip-text">Share via Email</span>
         </button>
       </div>
@@ -618,7 +618,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (facebookShareBtn) {
       facebookShareBtn.addEventListener("click", () => {
-        const url = decodeURIComponent(facebookShareBtn.dataset.url);
         const shareLink = `https://www.facebook.com/sharer/sharer.php?u=${facebookShareBtn.dataset.url}`;
         window.open(shareLink, "_blank", "width=600,height=400");
       });
