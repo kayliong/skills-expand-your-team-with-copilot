@@ -54,6 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (savedDarkMode === "enabled") {
       document.body.classList.add("dark-mode");
       updateDarkModeIcon(true);
+    } else {
+      updateDarkModeIcon(false);
     }
   }
 
@@ -79,7 +81,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Add event listener for dark mode toggle
-  darkModeToggle.addEventListener("click", toggleDarkMode);
+  if (darkModeToggle) {
+    darkModeToggle.addEventListener("click", toggleDarkMode);
+  }
 
   // Time range mappings for the dropdown
   const timeRanges = {
